@@ -6,6 +6,7 @@ import { baseUrl, myFetchPostAuth } from '../../utils';
 import Notification from '../Notification/Notification';
 import css from './AddQuestionForm.module.css';
 import Container from '../UI/Container/Container';
+import { useHistory } from 'react-router-dom';
 
 const initValues = {
   title: '',
@@ -13,6 +14,7 @@ const initValues = {
 };
 
 function AddForm() {
+  const history = useHistory();
   const ctx = useAuthCtx();
   const userToken = ctx.token;
 
@@ -30,7 +32,7 @@ function AddForm() {
       content: Yup.string()
         .min(5, 'Must be at least 5 characters long')
         .max(600, 'Can"t be longer than 600 characters')
-        .required('Privalomas laukas'),
+        .required('Field required'),
     }),
     onSubmit: async (values) => {
       const newQuestion = {
@@ -43,10 +45,10 @@ function AddForm() {
         newQuestion
       );
       console.log('addQuestionResult ===', addQuestionResult);
-      if (addQuestionResult.data.error) {
-        setSuccessAdd('');
-        setBackErrors('Something went wrong');
-        setShowNotification(true);
+
+      if (addQuestionResult.status === 401 || addQuestionResult.status === 403) {
+        ctx.logout();
+        history.push('/login');
         return;
       }
 
@@ -56,7 +58,7 @@ function AddForm() {
         setShowNotification(true);
         return;
       }
-      if (addQuestionResult.status === 500) {
+      if (addQuestionResult.status === 500 || addQuestionResult.status === 404) {
         setSuccessAdd('');
         setBackErrors('Something went wrong');
         setShowNotification(true);

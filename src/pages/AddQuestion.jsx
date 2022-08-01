@@ -1,4 +1,4 @@
-import AddQuestionForm from '../components/AddQuestion/AddQuestionForm';
+import AddQuestionForm from '../components/AddQuestionForm/AddQuestionForm';
 
 function AddQuestion() {
   return (
