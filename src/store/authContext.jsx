@@ -18,7 +18,7 @@ function AuthProvider(props) {
 
   const [userEmail, setUserEmail] = useState(null);
 
-  const [userId, setUserId] = useState(null);
+  const [userId, setUserId] = useState(localStorage.getItem('userId'));
 
   function login(userToken, userEmail) {
     setToken(userToken);
@@ -33,6 +33,7 @@ function AuthProvider(props) {
   }
 
   function handleUserId(userId) {
+    localStorage.setItem('userId', userId);
     setUserId(userId);
   }
 

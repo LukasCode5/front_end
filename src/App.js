@@ -41,7 +41,7 @@ function App() {
           <AddAnswerPage />
         </ProtectedRoute>
 
-        <ProtectedRoute exact path={'/update/answer/:answerId'}>
+        <ProtectedRoute exact path={'/update/answer/:answerId/question/:questionId'}>
           <UpdateAnswerPage />
         </ProtectedRoute>
 
