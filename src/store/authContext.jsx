@@ -6,6 +6,8 @@ export const AuthContext = createContext({
   isUserLoggedIn: false,
   token: '',
   userEmail: '',
+  handleUserId: () => {},
+  userId: '',
 });
 
 AuthContext.displayName = 'AuthContext';
@@ -15,6 +17,8 @@ function AuthProvider(props) {
   const isUserLoggedIn = !token ? false : true;
 
   const [userEmail, setUserEmail] = useState(null);
+
+  const [userId, setUserId] = useState(null);
 
   function login(userToken, userEmail) {
     setToken(userToken);
@@ -28,12 +32,18 @@ function AuthProvider(props) {
     setUserEmail(null);
   }
 
+  function handleUserId(userId) {
+    setUserId(userId);
+  }
+
   const ctx = {
     isUserLoggedIn,
     token,
     login,
     logout,
     userEmail,
+    handleUserId,
+    userId,
   };
   return <AuthContext.Provider value={ctx}>{props.children}</AuthContext.Provider>;
 }

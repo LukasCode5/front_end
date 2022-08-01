@@ -1,6 +1,6 @@
 import AddQuestionForm from '../components/AddQuestionForm/AddQuestionForm';
 
-function AddQuestion() {
+function AddQuestionPage() {
   return (
     <div>
       <AddQuestionForm />
@@ -8,4 +8,4 @@ function AddQuestion() {
   );
 }
 
-export default AddQuestion;
+export default AddQuestionPage;

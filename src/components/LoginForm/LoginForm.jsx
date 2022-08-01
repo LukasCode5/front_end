@@ -58,8 +58,12 @@ function LoginForm({ routeProtection }) {
       }
       const userEmail = values.email;
       if (routeProtection) {
-        setTimeout(() => ctx.login(loginResult.data.token, userEmail), 3000);
+        setTimeout(() => {
+          ctx.handleUserId(loginResult.data.userId);
+          ctx.login(loginResult.data.token, userEmail);
+        }, 3000);
       } else {
+        ctx.handleUserId(loginResult.data.userId);
         ctx.login(loginResult.data.token, userEmail);
       }
       values.email = '';

@@ -4,16 +4,15 @@ import * as Yup from 'yup';
 import { useAuthCtx } from '../../store/authContext';
 import { baseUrl, myFetchPostAuth } from '../../utils';
 import Notification from '../Notification/Notification';
-import css from './AddQuestionForm.module.css';
+import css from './AddAnswerForm.module.css';
 import Container from '../UI/Container/Container';
 import { useHistory } from 'react-router-dom';
 
 const initValues = {
-  title: '',
   content: '',
 };
 
-function AddQuestionForm() {
+function AddAnswerForm({ questionId }) {
   const history = useHistory();
   const ctx = useAuthCtx();
   const userToken = ctx.token;
@@ -25,49 +24,43 @@ function AddQuestionForm() {
   const formik = useFormik({
     initialValues: initValues,
     validationSchema: Yup.object({
-      title: Yup.string()
-        .min(5, 'Must be at least 5 characters long')
-        .max(100, 'Can"t be longer than 100 characters')
-        .required('Field required'),
       content: Yup.string()
         .min(5, 'Must be at least 5 characters long')
         .max(600, 'Can"t be longer than 600 characters')
         .required('Field required'),
     }),
     onSubmit: async (values) => {
-      const newQuestion = {
-        title: values.title,
+      const newAnswer = {
         content: values.content,
       };
-      const addQuestionResult = await myFetchPostAuth(
-        `${baseUrl}/questions`,
+      const addAnswerResult = await myFetchPostAuth(
+        `${baseUrl}/questions/${questionId}/answers`,
         userToken,
-        newQuestion
+        newAnswer
       );
-      console.log('addQuestionResult ===', addQuestionResult);
+      console.log('addAnswerResult ===', addAnswerResult);
 
-      if (addQuestionResult.status === 401 || addQuestionResult.status === 403) {
+      if (addAnswerResult.status === 401 || addAnswerResult.status === 403) {
         ctx.logout();
         history.push('/login');
         return;
       }
 
-      if (addQuestionResult.status === 400) {
+      if (addAnswerResult.status === 400) {
         setSuccessAdd('');
-        setBackErrors('Failed to post Question');
+        setBackErrors('Failed to post Answer');
         setShowNotification(true);
         return;
       }
-      if (addQuestionResult.status === 500 || addQuestionResult.status === 404) {
+      if (addAnswerResult.status === 500 || addAnswerResult.status === 404) {
         setSuccessAdd('');
         setBackErrors('Something went wrong');
         setShowNotification(true);
         return;
       }
-      values.title = '';
       values.content = '';
       setBackErrors('');
-      setSuccessAdd('Question posted successfully');
+      setSuccessAdd('Answer posted successfully');
       setShowNotification(true);
     },
   });
@@ -102,25 +95,7 @@ function AddQuestionForm() {
             {showNotification && successAdd && (
               <Notification onClick={handleHideNotification} message={successAdd} />
             )}
-            <h1>Add Question</h1>
-            <div className={css.inputGroup}>
-              <label htmlFor='title'>Title</label>
-              <input
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.title}
-                type='text'
-                className={`${css.input} ${css[rightClassesForInput('title')]}`}
-                name='title'
-                placeholder='Enter title here...'
-              />
-
-              {formik.touched.title && (
-                <p className={`${css.message} ${css[rightClassesForErrorMessage('title')]}`}>
-                  {formik.errors.title ? formik.errors.title : 'Looks good'}
-                </p>
-              )}
-            </div>
+            <h1>Add Answer</h1>
 
             <div className={css.inputGroup}>
               <label htmlFor='content'>Content</label>
@@ -132,7 +107,7 @@ function AddQuestionForm() {
                 className={`${css.input} ${css[rightClassesForInput('content')]}`}
                 name='content'
                 placeholder='Enter content here...'
-                rows={7}
+                rows={11}
               />
               {formik.touched.content && (
                 <p className={`${css.message} ${css[rightClassesForErrorMessage('content')]}`}>
@@ -150,4 +125,4 @@ function AddQuestionForm() {
   );
 }
 
-export default AddQuestionForm;
+export default AddAnswerForm;

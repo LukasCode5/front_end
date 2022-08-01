@@ -3,13 +3,14 @@ import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
-import AddAnswer from './pages/AddAnswer';
-import AddQuestion from './pages/AddQuestion';
+import AddAnswerPage from './pages/AddAnswerPage';
+import AddQuestionPage from './pages/AddQuestionPage';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
+import QuestionPage from './pages/QuestionPage';
 import RegisterPage from './pages/RegisterPage';
-import UpdateAnswer from './pages/UpdateAnswer';
-import UpdateQuestion from './pages/UpdateQuestion';
+import UpdateAnswerPage from './pages/UpdateAnswerPage';
+import UpdateQuestionPage from './pages/UpdateQuestionPage';
 
 function App() {
   return (
@@ -17,25 +18,35 @@ function App() {
       <Header />
       <Switch>
         <ProtectedRoute exact path={'/add/question'}>
-          <AddQuestion />
+          <AddQuestionPage />
         </ProtectedRoute>
-        <ProtectedRoute exact path={'/add/answer'}>
-          <AddAnswer />
-        </ProtectedRoute>
+
         <Route exact path={'/register'}>
           <RegisterPage />
         </Route>
+
         <Route exact path={'/login'}>
           <LoginPage />
         </Route>
+
         <Route exact path={'/'}>
           <HomePage />
         </Route>
-        <ProtectedRoute exact path={'/update/answer/:answerId'}>
-          <UpdateAnswer />
+
+        <Route exact path={'/question/:questionId'}>
+          <QuestionPage />
+        </Route>
+
+        <ProtectedRoute exact path={'/add/answer/question/:questionId'}>
+          <AddAnswerPage />
         </ProtectedRoute>
+
+        <ProtectedRoute exact path={'/update/answer/:answerId'}>
+          <UpdateAnswerPage />
+        </ProtectedRoute>
+
         <ProtectedRoute exact path={'/update/question/:questionId'}>
-          <UpdateQuestion />
+          <UpdateQuestionPage />
         </ProtectedRoute>
       </Switch>
       <Footer />

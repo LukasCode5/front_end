@@ -2,9 +2,9 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 import * as Yup from 'yup';
 import { useAuthCtx } from '../../store/authContext';
-import { baseUrl, myFetchPostAuth } from '../../utils';
+import { baseUrl, myFetchPatchAuth } from '../../utils';
 import Notification from '../Notification/Notification';
-import css from './AddQuestionForm.module.css';
+import css from './UpdateQuestionForm.module.css';
 import Container from '../UI/Container/Container';
 import { useHistory } from 'react-router-dom';
 
@@ -13,7 +13,10 @@ const initValues = {
   content: '',
 };
 
-function AddQuestionForm() {
+function UpdateQuestionForm({ questionId, qTitle, qContent }) {
+  initValues.title = qTitle;
+  initValues.content = qContent;
+
   const history = useHistory();
   const ctx = useAuthCtx();
   const userToken = ctx.token;
@@ -35,30 +38,30 @@ function AddQuestionForm() {
         .required('Field required'),
     }),
     onSubmit: async (values) => {
-      const newQuestion = {
+      const updateQuestion = {
         title: values.title,
         content: values.content,
       };
-      const addQuestionResult = await myFetchPostAuth(
-        `${baseUrl}/questions`,
+      const updateQuestionResult = await myFetchPatchAuth(
+        `${baseUrl}/questions/${questionId}`,
         userToken,
-        newQuestion
+        updateQuestion
       );
-      console.log('addQuestionResult ===', addQuestionResult);
+      console.log('updateQuestionResult ===', updateQuestionResult);
 
-      if (addQuestionResult.status === 401 || addQuestionResult.status === 403) {
+      if (updateQuestionResult.status === 401 || updateQuestionResult.status === 403) {
         ctx.logout();
         history.push('/login');
         return;
       }
 
-      if (addQuestionResult.status === 400) {
+      if (updateQuestionResult.status === 400) {
         setSuccessAdd('');
-        setBackErrors('Failed to post Question');
+        setBackErrors('Failed to update Question');
         setShowNotification(true);
         return;
       }
-      if (addQuestionResult.status === 500 || addQuestionResult.status === 404) {
+      if (updateQuestionResult.status === 500 || updateQuestionResult.status === 404) {
         setSuccessAdd('');
         setBackErrors('Something went wrong');
         setShowNotification(true);
@@ -67,8 +70,11 @@ function AddQuestionForm() {
       values.title = '';
       values.content = '';
       setBackErrors('');
-      setSuccessAdd('Question posted successfully');
+      setSuccessAdd('Question updated successfully');
       setShowNotification(true);
+      setTimeout(() => {
+        history.replace('/');
+      }, 3000);
     },
   });
 
@@ -102,7 +108,7 @@ function AddQuestionForm() {
             {showNotification && successAdd && (
               <Notification onClick={handleHideNotification} message={successAdd} />
             )}
-            <h1>Add Question</h1>
+            <h1>Update Question</h1>
             <div className={css.inputGroup}>
               <label htmlFor='title'>Title</label>
               <input
@@ -150,4 +156,4 @@ function AddQuestionForm() {
   );
 }
 
-export default AddQuestionForm;
+export default UpdateQuestionForm;
