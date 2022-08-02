@@ -1,8 +1,12 @@
 .cardList {
   min-height: 80vh;
   padding: 50px;
-  background: rgb(34, 193, 195);
-  background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+  /* background: rgb(34, 193, 195);
+  background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%); */
+  /* background: rgb(23, 0, 255);
+  background: linear-gradient(4deg, rgba(23, 0, 255, 1) 0%, rgba(255, 246, 0, 1) 100%); */
+  background: rgb(0, 131, 89);
+  background: linear-gradient(0deg, rgba(0, 131, 89, 1) 0%, rgba(101, 115, 255, 1) 100%);
 }
 
 .cardListGroup {
@@ -17,8 +21,6 @@
 .cardListGroup h1 {
   margin: 0;
   justify-self: center;
-  background: rgb(34, 193, 195);
-  background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
   padding: 7px 10px;
   border-radius: 5px;
 }
@@ -43,4 +45,21 @@
   border-radius: 5px;
   padding: 5px;
   color: tomato;
+}
+
+.options {
+  margin-top: 10px;
+}
+
+.options button {
+  margin-top: 15px;
+  background: rgb(34, 193, 195);
+  background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+  outline: none;
+  border: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 17px;
+  margin-left: 10px;
 }

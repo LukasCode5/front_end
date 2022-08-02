@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import AnswerList from '../components/QuestionList/QuestionList';
+import QuestionList from '../components/QuestionList/QuestionList';
 import { baseUrl, myFetch } from '../utils';
 
 function HomePage() {
@@ -29,7 +29,7 @@ function HomePage() {
 
   return (
     <div>
-      <AnswerList questionData={questions} answerData={questionsAnswers} />
+      <QuestionList questionData={questions} answerData={questionsAnswers} />
     </div>
   );
 }

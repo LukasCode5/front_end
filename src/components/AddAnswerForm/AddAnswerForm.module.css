@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(34, 193, 195);
-  background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+  background: rgb(0, 131, 89);
+  background: linear-gradient(0deg, rgba(0, 131, 89, 1) 0%, rgba(101, 115, 255, 1) 100%);
   min-height: 90vh;
   padding-bottom: 1px;
 }
@@ -25,6 +25,7 @@
   position: relative;
   padding: 10px 35px 50px 35px;
   background-color: rgb(255, 255, 255);
+  border-radius: 10px;
 }
 
 .usersOnly {
