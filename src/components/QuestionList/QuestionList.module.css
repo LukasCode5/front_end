@@ -1,0 +1,72 @@
+.cardList {
+  min-height: 80vh;
+  padding: 50px;
+  /* background: rgb(34, 193, 195);
+  background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%); */
+  /* background: rgb(23, 0, 255);
+  background: linear-gradient(4deg, rgba(23, 0, 255, 1) 0%, rgba(255, 246, 0, 1) 100%); */
+  background: rgb(0, 131, 89);
+  background: linear-gradient(0deg, rgba(0, 131, 89, 1) 0%, rgba(101, 115, 255, 1) 100%);
+}
+
+.cardListGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 20px 30px 30px 30px;
+  border-radius: 10px;
+}
+
+.cardListGroup h1 {
+  margin: 0;
+  justify-self: center;
+  padding: 7px 10px;
+  border-radius: 5px;
+}
+
+.cardContainer {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 5px;
+  width: 97%;
+  min-height: 63vh;
+}
+
+.noCards {
+  text-align: center;
+}
+
+.noCards h3 {
+  margin-top: 0;
+  font-size: 20px;
+  background-color: rgb(252, 197, 197);
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
+  color: tomato;
+}
+
+.filterOptions,
+.sortOptions {
+  margin-top: 10px;
+}
+
+.filterOptions h3,
+.sortOptions h3 {
+  display: inline-block;
+}
+
+.filterOptions button,
+.sortOptions button {
+  margin-top: 15px;
+  background: rgb(34, 193, 195);
+  background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+  outline: none;
+  border: none;
+  font-weight: bold;
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-size: 17px;
+  margin-left: 10px;
+}

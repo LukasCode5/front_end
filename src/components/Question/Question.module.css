@@ -1,0 +1,53 @@
+.question {
+  margin-bottom: 10px;
+  background-color: rgb(235, 235, 235);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.infoGroup {
+}
+.content {
+  display: inline-block;
+}
+
+.content h3 {
+  margin: 0;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.userInfo {
+  margin-left: 300px;
+  text-align: right;
+}
+
+.userInfo p {
+  display: inline-block;
+  margin: 5px;
+  font-size: 12px;
+}
+
+.userInfo button {
+  display: inline-block;
+}
+
+.stats {
+  display: inline-block;
+}
+
+.stats p {
+  margin: 5px;
+}
+
+.buttonSubmit {
+  /* margin-top: 15px; */
+  background: rgb(34, 193, 195);
+  background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+  outline: none;
+  border: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+}

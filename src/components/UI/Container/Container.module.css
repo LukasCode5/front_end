@@ -1,0 +1,14 @@
+.container {
+  margin: 0 auto;
+  max-width: 1600px;
+}
+
+.questionsContainer {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.singleQuestionContainer {
+  margin: 0 auto;
+  max-width: 1000px;
+}

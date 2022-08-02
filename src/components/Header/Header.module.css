@@ -1,0 +1,45 @@
+.header {
+  margin: 0 auto;
+  justify-self: center;
+  background-color: snow;
+  padding: 10px 30px 10px 30px;
+}
+
+.headerGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  max-width: 250px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.userEmail {
+  border-radius: 5px;
+  background: rgb(251, 248, 17);
+  background: linear-gradient(90deg, rgba(251, 248, 17, 1) 0%, rgba(255, 98, 98, 1) 100%);
+  padding: 7px 10px;
+  font-weight: bold;
+  color: black;
+}
+
+.navLink {
+  display: inline-block;
+  padding: 7px 10px;
+  color: black;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.navLink:hover {
+  background: rgb(224, 241, 255);
+  background: linear-gradient(0deg, rgba(224, 241, 255, 1) 0%, rgba(0, 80, 255, 1) 100%);
+}

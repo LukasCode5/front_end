@@ -1,0 +1,17 @@
+.answerList h3 {
+  text-align: center;
+  font-size: 30px;
+}
+.noCards {
+  text-align: center;
+}
+
+.noCards h3 {
+  margin-top: 0;
+  font-size: 20px;
+  background-color: rgb(252, 197, 197);
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
+  color: tomato;
+}
