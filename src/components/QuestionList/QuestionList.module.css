@@ -1,0 +1,46 @@
+.cardList {
+  min-height: 80vh;
+  padding: 50px;
+  background: rgb(34, 193, 195);
+  background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+}
+
+.cardListGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 20px 30px 30px 30px;
+  border-radius: 10px;
+}
+
+.cardListGroup h1 {
+  margin: 0;
+  justify-self: center;
+  background: rgb(34, 193, 195);
+  background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+  padding: 7px 10px;
+  border-radius: 5px;
+}
+
+.cardContainer {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 5px;
+  width: 97%;
+  min-height: 63vh;
+}
+
+.noCards {
+  text-align: center;
+}
+
+.noCards h3 {
+  margin-top: 0;
+  font-size: 27px;
+  background-color: rgb(252, 197, 197);
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
+  color: tomato;
+}

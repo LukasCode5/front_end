@@ -1,0 +1,40 @@
+.question {
+  margin-bottom: 10px;
+  background-color: lightgray;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.infoGroup {
+}
+.content {
+  display: inline-block;
+}
+
+.content h3 {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.userInfo {
+  margin-left: 110px;
+  text-align: right;
+}
+
+.userInfo p {
+  display: inline-block;
+  margin: 5px;
+  font-size: 12px;
+}
+
+.userInfo button {
+  display: inline-block;
+}
+
+.stats {
+  display: inline-block;
+}
+
+.stats p {
+  margin: 5px;
+}
