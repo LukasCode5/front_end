@@ -1,23 +1,23 @@
 import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import QuestionList from '../components/QuestionList/QuestionList';
 import { baseUrl, myFetch } from '../utils';
 
 function HomePage() {
-  const history = useHistory();
   const [questions, setQuestions] = useState([]);
   const [questionsAnswers, setQuestionsAnswers] = useState([]);
 
   async function getQuestions() {
     const allQuestionsResult = await myFetch(`${baseUrl}/questions`);
-    console.log('allQuestionsResult ===', allQuestionsResult);
+    // console.log('allQuestionsResult ===', allQuestionsResult);
     if (allQuestionsResult.status !== 200) {
+      setQuestions([]);
       return;
     }
     setQuestions(allQuestionsResult.data.result);
 
     const allAnswersResult = await myFetch(`${baseUrl}/questions/answers`);
     if (allQuestionsResult.status !== 200) {
+      setQuestionsAnswers([]);
       return;
     }
     setQuestionsAnswers(allAnswersResult.data.result);
@@ -26,10 +26,13 @@ function HomePage() {
   useEffect(() => {
     getQuestions();
   }, []);
-
+  // console.log('questionsAnswers ===', questionsAnswers);
   return (
     <div>
-      <QuestionList questionData={questions} answerData={questionsAnswers} />
+      <QuestionList
+        questionData={questions ? questions : []}
+        answerData={questionsAnswers ? questionsAnswers : []}
+      />
     </div>
   );
 }

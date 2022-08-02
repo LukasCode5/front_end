@@ -47,7 +47,7 @@ function UpdateQuestionForm({ questionId, qTitle, qContent }) {
         userToken,
         updateQuestion
       );
-      console.log('updateQuestionResult ===', updateQuestionResult);
+      // console.log('updateQuestionResult ===', updateQuestionResult);
 
       if (updateQuestionResult.status === 401 || updateQuestionResult.status === 403) {
         ctx.logout();

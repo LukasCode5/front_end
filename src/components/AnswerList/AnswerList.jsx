@@ -2,7 +2,7 @@ import { baseUrl, myFetchDeleteAuth } from '../../utils';
 import Answer from '../Answer/Answer';
 import css from './AnswerList.module.css';
 function AnswerList({ answersData, onDelete, onVote }) {
-  console.log('answersData ===', answersData);
+  // console.log('answersData ===', answersData);
 
   return (
     <div>

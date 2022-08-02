@@ -37,7 +37,7 @@ function RegisterForm() {
         password: values.password,
       };
       const registerResult = await myFetch(`${baseUrl}/users/register`, 'POST', newUser);
-      console.log('registerResult ===', registerResult);
+      // console.log('registerResult ===', registerResult);
       if (registerResult.status === 400) {
         setSuccessRegister('');
         if (registerResult.data.message) {

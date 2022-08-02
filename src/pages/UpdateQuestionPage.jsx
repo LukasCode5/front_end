@@ -14,20 +14,20 @@ function UpdateQuestionPage() {
 
   async function getQuestion() {
     const getQuestionsResult = await myFetch(`${baseUrl}/questions`);
-    console.log('getQuestionResult ===', getQuestionsResult);
+    // console.log('getQuestionResult ===', getQuestionsResult);
     if (getQuestionsResult.status !== 200) {
       return;
     }
     const question = getQuestionsResult.data.result.filter(
       (questionObj) => questionObj.id === questionId
     );
-    console.log('question ===', question);
+    // console.log('question ===', question);
     setQuestion(question[0]);
     setQTitle(question[0].title);
     setQContent(question[0].content);
   }
-  console.log('  qTitle ===', qTitle);
-  console.log('qContent ===', qContent);
+  // console.log('  qTitle ===', qTitle);
+  // console.log('qContent ===', qContent);
   useEffect(() => {
     getQuestion();
   }, []);

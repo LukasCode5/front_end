@@ -40,7 +40,7 @@ function UpdateAnswerForm({ questionId, answerId, aContent }) {
         userToken,
         updateAnswer
       );
-      console.log('updateAnswerResult ===', updateAnswerResult);
+      // console.log('updateAnswerResult ===', updateAnswerResult);
 
       if (updateAnswerResult.status === 401 || updateAnswerResult.status === 403) {
         ctx.logout();

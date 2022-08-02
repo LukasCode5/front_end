@@ -1,12 +1,11 @@
 import { useAuthCtx } from '../../store/authContext';
 import AnswerList from '../AnswerList/AnswerList';
-import Question from '../Question/Question';
 import Container from '../UI/Container/Container';
 import css from './SingleQuestion.module.css';
 
 function SingleQuestion({ questionData, answersData, userId, onDelete, onDeleteAnswer, onVote }) {
   const ctx = useAuthCtx();
-  console.log('id ===', userId);
+  // console.log('id ===', userId);
   return (
     <div className={css.cardList}>
       <Container singleQuestion>

@@ -10,24 +10,24 @@ function QuestionPage() {
   const token = ctx.token;
   const params = useParams();
   const questionId = +params.questionId;
-  console.log('questionId ===', questionId);
+  // console.log('questionId ===', questionId);
   const [singleQuestion, setSingleQuestion] = useState([]);
   const [questionAnswers, setQuestionAnswers] = useState([]);
 
   async function getQuestion() {
     const getSingleQuestionResult = await myFetch(`${baseUrl}/questions`);
-    console.log('getSingleQuestionResult ===', getSingleQuestionResult);
+    // console.log('getSingleQuestionResult ===', getSingleQuestionResult);
     if (getSingleQuestionResult.status !== 200) {
       return;
     }
     const singleQuestion = getSingleQuestionResult.data.result.filter(
       (questionObj) => questionObj.id === questionId
     );
-    console.log('singleQuestion ===', singleQuestion);
+    // console.log('singleQuestion ===', singleQuestion);
     setSingleQuestion(singleQuestion[0]);
 
     const getQuestionAnswers = await myFetch(`${baseUrl}/questions/${questionId}/answers`);
-    console.log('getQuestionAnswers ===', getQuestionAnswers);
+    // console.log('getQuestionAnswers ===', getQuestionAnswers);
     if (getQuestionAnswers.status !== 200) {
       setQuestionAnswers([]);
       return;
@@ -82,7 +82,7 @@ function QuestionPage() {
         `${baseUrl}/answers/${answerId}/votes/${value}`,
         token
       );
-      console.log('voteUpResult ===', voteUpResult);
+      // console.log('voteUpResult ===', voteUpResult);
       if (voteUpResult.status === 401 || voteUpResult.status === 403) {
         history.replace('/login');
         return;

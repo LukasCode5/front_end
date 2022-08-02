@@ -38,7 +38,7 @@ function AddAnswerForm({ questionId }) {
         userToken,
         newAnswer
       );
-      console.log('addAnswerResult ===', addAnswerResult);
+      // console.log('addAnswerResult ===', addAnswerResult);
 
       if (addAnswerResult.status === 401 || addAnswerResult.status === 403) {
         ctx.logout();

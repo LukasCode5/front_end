@@ -7,25 +7,25 @@ function UpdateAnswerPage() {
   const params = useParams();
   const answerId = +params.answerId;
   const questionId = +params.questionId;
-  console.log('answerId ===', answerId);
-  console.log('questionId ===', questionId);
+  // console.log('answerId ===', answerId);
+  // console.log('questionId ===', questionId);
 
   const [answer, setAnwer] = useState([]);
   const [aContent, setAContent] = useState('');
 
   async function getAnswer() {
     const getAnswersResult = await myFetch(`${baseUrl}/questions/${questionId}/answers`);
-    console.log('getAnswersResult ===', getAnswersResult);
+    // console.log('getAnswersResult ===', getAnswersResult);
     if (getAnswersResult.status !== 200) {
       return;
     }
     const answer = getAnswersResult.data.result.filter(
       (answerObj) => answerObj.question_id === questionId
     );
-    console.log('answer ===', answer);
+    // console.log('answer ===', answer);
     setAContent(answer[0].content);
   }
-  console.log('aContent ===', aContent);
+  // console.log('aContent ===', aContent);
   useEffect(() => {
     getAnswer();
   }, []);

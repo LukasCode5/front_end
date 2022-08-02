@@ -36,7 +36,7 @@ function LoginForm({ routeProtection }) {
         password: values.password,
       };
       const loginResult = await myFetch(`${baseUrl}/users/login`, 'POST', user);
-      console.log('registerResult ===', loginResult);
+      // console.log('registerResult ===', loginResult);
       if (loginResult.status === 400) {
         setSuccessLogin('');
         setBackErrors('Incorrect Email or Password');

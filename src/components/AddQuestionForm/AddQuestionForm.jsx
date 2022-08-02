@@ -44,7 +44,7 @@ function AddQuestionForm() {
         userToken,
         newQuestion
       );
-      console.log('addQuestionResult ===', addQuestionResult);
+      // console.log('addQuestionResult ===', addQuestionResult);
 
       if (addQuestionResult.status === 401 || addQuestionResult.status === 403) {
         ctx.logout();

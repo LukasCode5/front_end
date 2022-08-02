@@ -15,7 +15,7 @@ function Header() {
           <nav className={css.navigation}>
             {ctx.userEmail && (
               <a className={css.userEmail} disabled href='/'>
-                Sveiki, {ctx.userEmail}
+                Welcome, {ctx.userEmail}
               </a>
             )}
             <NavLink className={css.navLink} exact to={'/'}>
