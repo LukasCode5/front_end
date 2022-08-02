@@ -2,7 +2,7 @@ import Question from '../Question/Question';
 import Container from '../UI/Container/Container';
 import css from './QuestionList.module.css';
 
-function QuestionList({ questionData, answerData }) {
+function AnswerList({ questionData, answerData }) {
   return (
     <div className={css.cardList}>
       <Container questions>
@@ -45,4 +45,4 @@ function QuestionList({ questionData, answerData }) {
   );
 }
 
-export default QuestionList;
+export default AnswerList;

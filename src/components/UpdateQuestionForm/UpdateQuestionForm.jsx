@@ -73,7 +73,7 @@ function UpdateQuestionForm({ questionId, qTitle, qContent }) {
       setSuccessAdd('Question updated successfully');
       setShowNotification(true);
       setTimeout(() => {
-        history.replace('/');
+        history.replace(`/question/${questionId}`);
       }, 3000);
     },
   });

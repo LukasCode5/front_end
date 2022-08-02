@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { baseUrl } from '../utils';
 
 export const AuthContext = createContext({
   login: () => {},
@@ -10,6 +11,8 @@ export const AuthContext = createContext({
   handleUserId: () => {},
   userId: '',
   goToQuestion: () => {},
+  updateQuestion: () => {},
+  addAnswer: () => {},
 });
 
 AuthContext.displayName = 'AuthContext';
@@ -44,6 +47,14 @@ function AuthProvider(props) {
     history.push(`/question/${questionId}`);
   }
 
+  function updateQuestion(questionId) {
+    history.replace(`/update/question/${questionId}`);
+  }
+
+  function addAnswer(questionId) {
+    history.push(`/add/answer/question/${questionId}`);
+  }
+
   const ctx = {
     isUserLoggedIn,
     token,
@@ -53,6 +64,8 @@ function AuthProvider(props) {
     handleUserId,
     userId,
     goToQuestion,
+    updateQuestion,
+    addAnswer,
   };
   return <AuthContext.Provider value={ctx}>{props.children}</AuthContext.Provider>;
 }

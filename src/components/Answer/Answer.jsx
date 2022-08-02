@@ -1,13 +1,12 @@
 import { useAuthCtx } from '../../store/authContext';
-import css from './Question.module.css';
+import css from './Answer.module.css';
 
-function Question({ title, answerCount, userEmail, createdAt, updatedAt, id }) {
+function Answer({ content, answerCount, createdAt, updatedAt, id }) {
   const ctx = useAuthCtx();
   return (
     <div className={css.question}>
       <div className={css.infoGroup}>
         <div className={css.content}>
-          <h3 className={css.questionTitle}>{title}</h3>
           <div className={css.userInfo}>
             <div className={css.stats}>
               <p>{answerCount} Answers</p>
@@ -17,9 +16,6 @@ function Question({ title, answerCount, userEmail, createdAt, updatedAt, id }) {
                 ? `updated at ${updatedAt.split('.')[0]}`
                 : `created at ${createdAt.split('.')[0]}`}
             </p>
-            <button className={css.buttonSubmit} onClick={() => ctx.goToQuestion(id)}>
-              View question
-            </button>
           </div>
         </div>
       </div>
@@ -27,4 +23,4 @@ function Question({ title, answerCount, userEmail, createdAt, updatedAt, id }) {
   );
 }
 
-export default Question;
+export default Answer;
