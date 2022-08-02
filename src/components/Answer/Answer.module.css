@@ -1,28 +1,45 @@
 .answer {
   background-color: rgb(235, 235, 235);
-  width: 94%;
+  width: 93%;
   padding: 20px;
   border-radius: 5px;
   margin-bottom: 10px;
-  margin-left: -6px;
-}
-
-.question {
-  margin-bottom: 10px;
-  background-color: rgb(235, 235, 235);
-  padding: 15px;
-  border-radius: 10px;
+  margin-left: 12px;
 }
 
 .infoGroup {
-}
-.content {
-  display: inline-block;
+  display: flex;
+  gap: 30px;
 }
 
-.content h3 {
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(192, 192, 192);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.stats p {
+  font-weight: bold;
+  margin: 3px 0 3px 0;
+}
+
+.stats button {
+  padding: 0px 10px;
+}
+
+.content {
+  flex-basis: 100%;
+}
+
+.content p {
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  font-size: 17px;
 }
 
 .userInfo {
@@ -31,7 +48,6 @@
 }
 
 .userInfo p {
-  display: inline-block;
   margin: 5px;
   font-size: 12px;
 }
@@ -40,16 +56,19 @@
   display: inline-block;
 }
 
-.stats {
-  display: inline-block;
-}
-
-.stats p {
-  margin: 5px;
-}
-
 .buttonSubmit {
   /* margin-top: 15px; */
+  margin-left: 10px;
+  background: rgb(34, 193, 195);
+  background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+  outline: none;
+  border: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.buttonVote {
   background: rgb(34, 193, 195);
   background: radial-gradient(circle, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
   outline: none;

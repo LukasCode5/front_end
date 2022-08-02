@@ -18,6 +18,9 @@ function Header() {
                 Sveiki, {ctx.userEmail}
               </a>
             )}
+            <NavLink className={css.navLink} exact to={'/'}>
+              Home
+            </NavLink>
             {!ctx.isUserLoggedIn && (
               <>
                 <NavLink className={css.navLink} to={'/login'}>
@@ -30,9 +33,6 @@ function Header() {
             )}
             {ctx.isUserLoggedIn && (
               <>
-                <NavLink className={css.navLink} exact to={'/'}>
-                  Home
-                </NavLink>
                 <NavLink className={css.navLink} to={'/add/question'}>
                   Add Question
                 </NavLink>

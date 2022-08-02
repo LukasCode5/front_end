@@ -13,6 +13,7 @@ export const AuthContext = createContext({
   goToQuestion: () => {},
   updateQuestion: () => {},
   addAnswer: () => {},
+  updateAnswer: () => {},
 });
 
 AuthContext.displayName = 'AuthContext';
@@ -55,6 +56,10 @@ function AuthProvider(props) {
     history.push(`/add/answer/question/${questionId}`);
   }
 
+  function updateAnswer(answerId, questionId) {
+    history.replace(`/update/answer/${answerId}/question/${questionId}`);
+  }
+
   const ctx = {
     isUserLoggedIn,
     token,
@@ -66,6 +71,7 @@ function AuthProvider(props) {
     goToQuestion,
     updateQuestion,
     addAnswer,
+    updateAnswer,
   };
   return <AuthContext.Provider value={ctx}>{props.children}</AuthContext.Provider>;
 }

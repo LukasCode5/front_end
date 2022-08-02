@@ -3,7 +3,7 @@ export async function myFetch(url, method = 'GET', data = null) {
     const options = {
       headers: { 'Content-Type': 'application/json' },
     };
-    options.method = method === 'POST' ? 'POST' : 'GET';
+    options.method = method;
     options.body = data ? JSON.stringify(data) : null;
     // console.log('options ===', options);
     const response = await fetch(url, options);

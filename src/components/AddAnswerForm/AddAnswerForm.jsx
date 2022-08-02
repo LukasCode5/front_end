@@ -62,6 +62,9 @@ function AddAnswerForm({ questionId }) {
       setBackErrors('');
       setSuccessAdd('Answer posted successfully');
       setShowNotification(true);
+      setTimeout(() => {
+        history.replace(`/question/${questionId}`);
+      }, 3000);
     },
   });
 

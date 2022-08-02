@@ -1,9 +1,13 @@
+import { baseUrl, myFetchDeleteAuth } from '../../utils';
 import Answer from '../Answer/Answer';
 import css from './AnswerList.module.css';
-function AnswerList(answersData) {
+function AnswerList({ answersData, onDelete, onVote }) {
+  console.log('answersData ===', answersData);
+
   return (
     <div>
       <div className={css.answerList}>
+        <h3>Answers</h3>
         <div
           className={`${Array.isArray(answersData) && answersData.length > 0 ? '' : css.noCards}`}
         >
@@ -15,7 +19,13 @@ function AnswerList(answersData) {
                 createdAt={answerObj.created_at}
                 updatedAt={answerObj.updated_at}
                 answerVotes={answerObj.votes}
-                id={answerObj.id}
+                content={answerObj.content}
+                answerId={answerObj.id}
+                userId={answerObj.user_id}
+                onDelete={onDelete}
+                questionId={answerObj.question_id}
+                votes={answerObj.votes}
+                onVote={onVote}
               />
             ))
           ) : (

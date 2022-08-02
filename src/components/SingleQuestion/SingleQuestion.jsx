@@ -4,7 +4,7 @@ import Question from '../Question/Question';
 import Container from '../UI/Container/Container';
 import css from './SingleQuestion.module.css';
 
-function SingleQuestion({ questionData, answersData, userId, onDelete }) {
+function SingleQuestion({ questionData, answersData, userId, onDelete, onDeleteAnswer, onVote }) {
   const ctx = useAuthCtx();
   console.log('id ===', userId);
   return (
@@ -47,7 +47,7 @@ function SingleQuestion({ questionData, answersData, userId, onDelete }) {
               </div>
             </div>
           </div>
-          <AnswerList />
+          <AnswerList answersData={answersData} onDelete={onDeleteAnswer} onVote={onVote} />
         </div>
       </Container>
     </div>

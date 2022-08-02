@@ -1,8 +1,6 @@
-.answerList {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.answerList h3 {
+  text-align: center;
+  font-size: 25px;
 }
 .noCards {
   text-align: center;
